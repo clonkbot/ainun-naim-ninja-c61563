@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-orange: #f97316;
+  --color-red: #ef4444;
+  --color-pink: #ec4899;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-ninja {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 0.05em;
+}
+
+.font-display {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+}
+
+/* Glow effects */
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.5));
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes combo-popup {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out forwards;
+}
+
+.animate-combo-popup {
+  animation: combo-popup 0.5s ease-out forwards;
+}
+
+/* Background floating fruits */
+.fruit-bg {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.fruit-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.fruit-2 { top: 20%; right: 10%; animation-delay: 0.5s; }
+.fruit-3 { top: 40%; left: 15%; animation-delay: 1s; }
+.fruit-4 { top: 60%; right: 20%; animation-delay: 1.5s; }
+.fruit-5 { top: 80%; left: 10%; animation-delay: 2s; }
+.fruit-6 { top: 30%; right: 5%; animation-delay: 2.5s; }
+.fruit-7 { top: 70%; left: 25%; animation-delay: 3s; }
+.fruit-8 { top: 15%; left: 50%; animation-delay: 3.5s; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+
+  .hover\:scale-\[1\.02\]:hover {
+    transform: none;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .fruit-bg {
+    font-size: 2rem;
+  }
+}
